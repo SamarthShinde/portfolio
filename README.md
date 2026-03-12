@@ -4,7 +4,7 @@ A modern, animated personal portfolio built as a single-file HTML/CSS/JS applica
 
 ## Live Demo
 
-> Deploy link will appear here after hosting
+> https://samarthfolio.netlify.app
 
 ## Features
 
