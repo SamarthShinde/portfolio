@@ -1,60 +1,66 @@
-# Samarth Shinde — Portfolio · SIGNAL//002
+# Samarth Shinde — Portfolio · SAMARTH.EXE
 
-A precision-instrument portfolio — designed like a piece of high-end lab equipment as a nod to my signal-processing and audio-AI patent work. One file. Zero frameworks. Zero dependencies. Pure web craft.
+A scroll-driven, neon **gamer-themed** portfolio built with React + Vite. The page is a playthrough: each section is a *zone* with its own animated background scene that crossfades in as you scroll — the career as a game, the patent as a legendary drop.
 
 ## Live Demo
 
 > https://samarthfolio.netlify.app
 
-## The Concept
+## The Concept — PLAYER ONE
 
-Most portfolios look like portfolios. This one looks like an oscilloscope booted up a personality. Every design decision flows from one theme — **the signal**:
+Scrolling advances the story. A fixed full-screen canvas watches your scroll position and blends between eight procedural neon scenes, one per zone:
 
-- A live **oscilloscope waveform** that reacts to your mouse position
-- A **HUD crosshair cursor** with live X/Y coordinate readout
-- **Text-decode (scramble) animation** that resolves roles like a tuned-in transmission
-- Skills rendered as **audio EQ level meters** that light up segment-by-segment, peaking into the red
-- A patent block styled as a **stamped official dossier** with a rotated `FILED` seal
-- A **terminal boot sequence** loader (`SYS//INIT`) with status lines
-- Film-grain overlay, blueprint dot-grid, fixed corner frame marks — instrument-panel everywhere
+| Zone | Section | Background Scene |
+|------|---------|------------------|
+| 00 | Player One (Hero) | Aurora drift — orbiting neon blobs + dust |
+| 01 | Origin Story (Career Timeline) | Warp field — hyperspace star streaks |
+| 02 | Core Attributes (Strengths) | Synthwave grid — perspective floor + sun |
+| 03 | Skill Tree (Skills) | Neural net — linked drifting orbs |
+| 04 | Quest Log (Experience) | Night city — neon skyline + scanline sweep |
+| 05 | Inventory (Projects) | Loot vault — wireframe polygons + sparkles |
+| 06 | Trophy Room (Achievements) | Trophy rain — rising gold embers |
+| 07 | Join Party (Contact) | Terminal rain — matrix glyph columns |
 
-## Features
+## UI/UX — reactbits.dev components
 
-- **Boot Loader** — terminal-style init sequence with progress readout
-- **Live Waveform Canvas** — layered oscilloscope traces, mouse-reactive amplitude
-- **HUD Cursor** — full-viewport crosshair lines + coordinate tag (auto-disabled on touch)
-- **Scramble Decode** — roles cycle via character-decode effect (AI Analyst, ML Researcher, …)
-- **EQ Skill Meters** — 24-segment level meters with red peak zone
-- **CGPA Dials** — animated SVG gauge rings
-- **Spotlight Project Cards** — mouse-tracked radial glow
-- **Stamped Patent Dossier** — Indian Patent App No. 202541052870
-- **Side Rail + Active Nav** — scroll-synced section indicators
-- **Editorial Type Mix** — Space Grotesk × Instrument Serif italics × IBM Plex Mono
-- **Accessible** — full `prefers-reduced-motion` support, semantic markup
-- **Fully Responsive** — mobile, tablet, desktop
+Game-feel components adapted from [reactbits.dev](https://reactbits.dev):
+
+- **GlitchText** — RGB-split glitch headline on the hero name
+- **DecryptedText** — section labels scramble-decode into view
+- **SpotlightCard** — strength cards with cursor-tracked glow
+- **TiltedCard** — 3D-tilting project cards (framer-motion springs)
+- **StarBorder** — buttons with orbiting edge light
+
+Plus a full game HUD: top nav with zone links, bottom **XP bar** (scroll progress), zone indicator (`ZONE 03 // SKILL TREE`), diamond side-rail, boot screen (`LOADING WORLD…` + Konami hint), typed roles, XP-style skill bars, and a gold **LEGENDARY ITEM** patent card with sheen.
+
+## AI-generated video backgrounds (drop-in ready)
+
+Each zone's canvas scene can be replaced by an AI-generated video (e.g. Higgsfield image→video, using consecutive keyframes so the story flows section to section — keep face details unchanged when generating):
+
+1. Drop clips into `public/videos/`
+2. Map them in `src/data/resume.js`:
+   ```js
+   export const sceneVideos = { hero: '/videos/hero.mp4', timeline: '/videos/timeline.mp4' };
+   ```
+3. Videos auto-crossfade with scroll exactly like the canvas scenes. Zones without a video keep their procedural scene.
+
+**Hero photo:** replace `public/hero.jpg` with your preferred portrait — the neon frame, scanline and HUD plate adapt automatically.
 
 ## Tech Stack
 
-- Pure **HTML5 / CSS3 / Vanilla JavaScript** — single `index.html`
-- Google Fonts: Space Grotesk · Instrument Serif · IBM Plex Mono
-- Canvas API for the oscilloscope waveform
-- IntersectionObserver for scroll-triggered animation
-- No external libraries or frameworks
+- **React 18 + Vite 5**, `framer-motion` for scroll/in-view animation
+- Canvas 2D for all eight background scenes (zero WebGL deps)
+- Fonts: Orbitron · Chakra Petch · Share Tech Mono · Press Start 2P
+- `prefers-reduced-motion` supported throughout; fully responsive
+- Deployed via Netlify (`netlify.toml` → `npm run build` → `dist/`)
 
-## Sections
+```bash
+npm install
+npm run dev      # local dev
+npm run build    # production build
+```
 
-| # | Section | Highlights |
-|---|---------|-----------|
-| 00 | Hero | Oscilloscope waveform, decode animation, outlined-serif name |
-| 01 | Stats | Instrument readouts — experience, patent, accuracy, certs |
-| 02 | About | Spec-sheet fact grid + scan-line terminal panel |
-| 03 | Experience | Ledger-style rows with sweep-line hover |
-| 04 | Projects | Spotlight cards — In-Cabin AI, FastAPI Backend, ImageEntity Extractor |
-| 05 | Patent | Stamped dossier — Indian Patent App No. 202541052870 |
-| 06 | Skills | Dual-channel EQ level meters (CH_A / CH_B) |
-| 07 | Education | SVG dial gauges for CGPA |
-| 08 | Recognition | Pull-quote from Giuliana Zennaro, Stellantis Europe |
-| 09 | Contact | Giant outlined CTA + contact grid |
+The previous single-file portfolio is preserved at [`/legacy.html`](public/legacy.html).
 
 ## About Me
 
@@ -74,4 +80,4 @@ BE in Electronics & Telecommunication + Minors in AI/ML from Ramaiah Institute o
 
 ---
 
-*Built with zero dependencies. Tuned, not templated.*
+*INSERT COIN TO START ▮ — "Ship fast, think deep."*
